@@ -1,0 +1,42 @@
+begin model
+begin parameters 
+    h 1.000000e-05 
+    f 1.000000e-05 
+    g 2.500000e+02 
+    k 2.500000e-01 
+end parameters 
+
+begin molecule types 
+    gene1(p1~0~1,p2~0~1) 
+    gene2(p1~0~1,p2~0~1) 
+    protein1 
+    protein2 
+end molecule types
+begin species 
+    gene1(p1~0,p2~0) 1 
+    gene2(p1~0,p2~0) 1 
+    protein1 82 
+    protein2 82 
+end species
+begin observables 
+    Molecules protein1 protein1 
+    Molecules protein2 protein2 
+end observables 
+begin reaction rules 
+    gene1(p1~0,p2) + protein1 + protein1 <-> gene1(p1~1,p2) h,f
+    gene1(p1,p2~0) + protein2 + protein2 <-> gene1(p1,p2~1) h,f
+    gene2(p1~0,p2) + protein1 + protein1 <-> gene2(p1~1,p2) h,f
+    gene2(p1,p2~0) + protein2 + protein2 <-> gene2(p1,p2~1) h,f
+    gene1(p1~1,p2~0) -> gene1(p1~1,p2~0) + protein1 g
+    gene1(p1~1,p2~1) -> gene1(p1~1,p2~1) + protein1 g
+    gene1(p1~0,p2~0) -> gene1(p1~0,p2~0) + protein1 g
+    protein1 -> 0 k
+    gene2(p1~0,p2~1) -> gene2(p1~0,p2~1) + protein2 g
+    gene2(p1~1,p2~1) -> gene2(p1~1,p2~1) + protein2 g
+    gene2(p1~0,p2~0) -> gene2(p1~0,p2~0) + protein2 g
+    protein2 -> 0 k
+end reaction rules 
+end model
+
+generate_network({overwrite=>1})
+simulate_ssa({t_start=>0,t_end=>9000000,n_steps=>9000000})
