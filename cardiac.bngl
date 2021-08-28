@@ -1,0 +1,422 @@
+begin model
+begin parameters 
+    h 1.000000e-04 
+    f 1.000000e-04 
+    g 2.500000e+02 
+    k 2.500000e-01 
+end parameters 
+
+begin molecule types 
+    ActivinA(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    bMHC(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    BMP4(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    Cavelolin1(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    cMYC(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    Ecadherin(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    FGF2(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    FLK1(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    GATA4(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    ISL1(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    KLF4(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    LIF(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    MEF2C(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    MESP1(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    NANOG(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    NKX25(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    OCT4(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    Ripply2(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    SNAIL1(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    SNAIL2(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    SOX2(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    TBX5(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    TGFb1(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    TWIST1(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    WNT3A(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    Brachyury(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    aMHC(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    MLC2v(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    vimentin(p1~0~1,p2~0~1,p3~0~1,p4~0~1,p5~0~1,p6~0~1,p7~0~1,p8~0~1,p9~0~1,p10~0~1,p11~0~1,p12~0~1,p13~0~1,p14~0~1,p15~0~1,p16~0~1,p17~0~1,p18~0~1,p19~0~1,p20~0~1,p21~0~1,p22~0~1,p23~0~1,p24~0~1,p25~0~1,p26~0~1,p27~0~1,p28~0~1,p29~0~1) 
+    ProteinActivinA 
+     ProteinbMHC 
+     ProteinBMP4 
+     ProteinCavelolin1 
+     ProteincMYC 
+     ProteinEcadherin 
+     ProteinFGF2 
+     ProteinFLK1 
+     ProteinGATA4 
+     ProteinISL1 
+     ProteinKLF4 
+     ProteinLIF 
+     ProteinMEF2C 
+     ProteinMESP1 
+     ProteinNANOG 
+     ProteinNKX25 
+     ProteinOCT4 
+     ProteinRipply2 
+     ProteinSNAIL1 
+     ProteinSNAIL2 
+     ProteinSOX2 
+     ProteinTBX5 
+     ProteinTGFb1 
+     ProteinTWIST1 
+     ProteinWNT3A 
+     ProteinBrachyury 
+     ProteinaMHC 
+     ProteinMLC2v 
+     Proteinvimentin 
+end molecule types
+begin species 
+    ActivinA(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    bMHC(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    BMP4(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    Cavelolin1(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    cMYC(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    Ecadherin(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    FGF2(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    FLK1(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    GATA4(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    ISL1(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    KLF4(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    LIF(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    MEF2C(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    MESP1(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    NANOG(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    NKX25(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    OCT4(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    Ripply2(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    SNAIL1(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    SNAIL2(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    SOX2(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    TBX5(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    TGFb1(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    TWIST1(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    WNT3A(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    Brachyury(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    aMHC(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    MLC2v(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    vimentin(p1~0,p2~0,p3~0,p4~0,p5~0,p6~0,p7~0,p8~0,p9~0,p10~0,p11~0,p12~0,p13~0,p14~0,p15~0,p16~0,p17~0,p18~0,p19~0,p20~0,p21~0,p22~0,p23~0,p24~0,p25~0,p26~0,p27~0,p28~0,p29~0) 1 
+    ProteinActivinA 10 
+     ProteinbMHC 10 
+     ProteinBMP4 10 
+     ProteinCavelolin1 10 
+     ProteincMYC 10 
+     ProteinEcadherin 10 
+     ProteinFGF2 10 
+     ProteinFLK1 10 
+     ProteinGATA4 10 
+     ProteinISL1 10 
+     ProteinKLF4 10 
+     ProteinLIF 10 
+     ProteinMEF2C 10 
+     ProteinMESP1 10 
+     ProteinNANOG 10 
+     ProteinNKX25 10 
+     ProteinOCT4 10 
+     ProteinRipply2 10 
+     ProteinSNAIL1 10 
+     ProteinSNAIL2 10 
+     ProteinSOX2 10 
+     ProteinTBX5 10 
+     ProteinTGFb1 10 
+     ProteinTWIST1 10 
+     ProteinWNT3A 10 
+     ProteinBrachyury 10 
+     ProteinaMHC 10 
+     ProteinMLC2v 10 
+     Proteinvimentin 10 
+end species
+begin observables 
+    Molecules ProteinActivinA ProteinActivinA 
+    Molecules  ProteinbMHC  ProteinbMHC 
+    Molecules  ProteinBMP4  ProteinBMP4 
+    Molecules  ProteinCavelolin1  ProteinCavelolin1 
+    Molecules  ProteincMYC  ProteincMYC 
+    Molecules  ProteinEcadherin  ProteinEcadherin 
+    Molecules  ProteinFGF2  ProteinFGF2 
+    Molecules  ProteinFLK1  ProteinFLK1 
+    Molecules  ProteinGATA4  ProteinGATA4 
+    Molecules  ProteinISL1  ProteinISL1 
+    Molecules  ProteinKLF4  ProteinKLF4 
+    Molecules  ProteinLIF  ProteinLIF 
+    Molecules  ProteinMEF2C  ProteinMEF2C 
+    Molecules  ProteinMESP1  ProteinMESP1 
+    Molecules  ProteinNANOG  ProteinNANOG 
+    Molecules  ProteinNKX25  ProteinNKX25 
+    Molecules  ProteinOCT4  ProteinOCT4 
+    Molecules  ProteinRipply2  ProteinRipply2 
+    Molecules  ProteinSNAIL1  ProteinSNAIL1 
+    Molecules  ProteinSNAIL2  ProteinSNAIL2 
+    Molecules  ProteinSOX2  ProteinSOX2 
+    Molecules  ProteinTBX5  ProteinTBX5 
+    Molecules  ProteinTGFb1  ProteinTGFb1 
+    Molecules  ProteinTWIST1  ProteinTWIST1 
+    Molecules  ProteinWNT3A  ProteinWNT3A 
+    Molecules  ProteinBrachyury  ProteinBrachyury 
+    Molecules  ProteinaMHC  ProteinaMHC 
+    Molecules  ProteinMLC2v  ProteinMLC2v 
+    Molecules  Proteinvimentin  Proteinvimentin 
+end observables 
+begin reaction rules 
+    ActivinA(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinEcadherin +  ProteinEcadherin <-> ActivinA(p1,p2,p3,p4,p5,p6~1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    ActivinA(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~0,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinKLF4 +  ProteinKLF4 <-> ActivinA(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~1,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    ActivinA(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinOCT4 +  ProteinOCT4 <-> ActivinA(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    ActivinA(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSOX2 +  ProteinSOX2 <-> ActivinA(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    ActivinA(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinBrachyury +  ProteinBrachyury <-> ActivinA(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~1,p27,p28,p29) h,f
+    bMHC(p1,p2~0,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinbMHC +  ProteinbMHC <-> bMHC(p1,p2~1,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    BMP4(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinEcadherin +  ProteinEcadherin <-> BMP4(p1,p2,p3,p4,p5,p6~1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinISL1 +  ProteinISL1 <-> BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~0,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinKLF4 +  ProteinKLF4 <-> BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~1,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinOCT4 +  ProteinOCT4 <-> BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSOX2 +  ProteinSOX2 <-> BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22~0,p23,p24,p25,p26,p27,p28,p29) +  ProteinTBX5 +  ProteinTBX5 <-> BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22~1,p23,p24,p25,p26,p27,p28,p29) h,f
+    BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinBrachyury +  ProteinBrachyury <-> BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~1,p27,p28,p29) h,f
+    Cavelolin1(p1,p2,p3,p4~0,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinCavelolin1 +  ProteinCavelolin1 <-> Cavelolin1(p1,p2,p3,p4~1,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    cMYC(p1,p2,p3,p4,p5~0,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteincMYC +  ProteincMYC <-> cMYC(p1,p2,p3,p4,p5~1,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    cMYC(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinEcadherin +  ProteinEcadherin <-> cMYC(p1,p2,p3,p4,p5,p6~1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    cMYC(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26,p27,p28,p29) +  ProteinTGFb1 +  ProteinTGFb1 <-> cMYC(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~1,p24,p25,p26,p27,p28,p29) h,f
+    Ecadherin(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinEcadherin +  ProteinEcadherin <-> Ecadherin(p1,p2,p3,p4,p5,p6~1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    Ecadherin(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14~0,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinMESP1 +  ProteinMESP1 <-> Ecadherin(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14~1,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    Ecadherin(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNANOG +  ProteinNANOG <-> Ecadherin(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    FGF2(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinEcadherin +  ProteinEcadherin <-> FGF2(p1,p2,p3,p4,p5,p6~1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    FGF2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNANOG +  ProteinNANOG <-> FGF2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    FGF2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinOCT4 +  ProteinOCT4 <-> FGF2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    FGF2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24~0,p25,p26,p27,p28,p29) +  ProteinTWIST1 +  ProteinTWIST1 <-> FGF2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24~1,p25,p26,p27,p28,p29) h,f
+    FLK1(p1,p2,p3,p4,p5,p6,p7,p8~0,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinFLK1 +  ProteinFLK1 <-> FLK1(p1,p2,p3,p4,p5,p6,p7,p8~1,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    FLK1(p1,p2,p3,p4,p5,p6,p7,p8,p9~0,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinGATA4 +  ProteinGATA4 <-> FLK1(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    FLK1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~0,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinMEF2C +  ProteinMEF2C <-> FLK1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    FLK1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22~0,p23,p24,p25,p26,p27,p28,p29) +  ProteinTBX5 +  ProteinTBX5 <-> FLK1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22~1,p23,p24,p25,p26,p27,p28,p29) h,f
+    GATA4(p1,p2,p3,p4,p5,p6,p7,p8,p9~0,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinGATA4 +  ProteinGATA4 <-> GATA4(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    GATA4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~0,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinMEF2C +  ProteinMEF2C <-> GATA4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    GATA4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~0,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNKX25 +  ProteinNKX25 <-> GATA4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~1,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    GATA4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27~0,p28,p29) +  ProteinaMHC +  ProteinaMHC <-> GATA4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27~1,p28,p29) h,f
+    ISL1(p1,p2,p3,p4,p5,p6,p7,p8,p9~0,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinGATA4 +  ProteinGATA4 <-> ISL1(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    ISL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinISL1 +  ProteinISL1 <-> ISL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    ISL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~0,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinMEF2C +  ProteinMEF2C <-> ISL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    ISL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~0,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNKX25 +  ProteinNKX25 <-> ISL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~1,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    KLF4(p1,p2,p3,p4,p5~0,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteincMYC +  ProteincMYC <-> KLF4(p1,p2,p3,p4,p5~1,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    KLF4(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinEcadherin +  ProteinEcadherin <-> KLF4(p1,p2,p3,p4,p5,p6~1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~0,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinKLF4 +  ProteinKLF4 <-> KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~1,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNANOG +  ProteinNANOG <-> KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinOCT4 +  ProteinOCT4 <-> KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSOX2 +  ProteinSOX2 <-> KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26,p27,p28,p29) +  ProteinTGFb1 +  ProteinTGFb1 <-> KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~1,p24,p25,p26,p27,p28,p29) h,f
+    LIF(p1,p2,p3,p4,p5~0,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteincMYC +  ProteincMYC <-> LIF(p1,p2,p3,p4,p5~1,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    LIF(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNANOG +  ProteinNANOG <-> LIF(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    LIF(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinOCT4 +  ProteinOCT4 <-> LIF(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    LIF(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSOX2 +  ProteinSOX2 <-> LIF(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    MEF2C(p1,p2~0,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinbMHC +  ProteinbMHC <-> MEF2C(p1,p2~1,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    MEF2C(p1,p2,p3,p4,p5,p6,p7,p8,p9~0,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinGATA4 +  ProteinGATA4 <-> MEF2C(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    MEF2C(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~0,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinMEF2C +  ProteinMEF2C <-> MEF2C(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    MEF2C(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27~0,p28,p29) +  ProteinaMHC +  ProteinaMHC <-> MEF2C(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27~1,p28,p29) h,f
+    MEF2C(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28~0,p29) +  ProteinMLC2v +  ProteinMLC2v <-> MEF2C(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28~1,p29) h,f
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8~0,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinFLK1 +  ProteinFLK1 <-> MESP1(p1,p2,p3,p4,p5,p6,p7,p8~1,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9~0,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinGATA4 +  ProteinGATA4 <-> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinISL1 +  ProteinISL1 <-> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~0,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinMEF2C +  ProteinMEF2C <-> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14~0,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinMESP1 +  ProteinMESP1 <-> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14~1,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNANOG +  ProteinNANOG <-> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~0,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNKX25 +  ProteinNKX25 <-> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~1,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinOCT4 +  ProteinOCT4 <-> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18~0,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinRipply2 +  ProteinRipply2 <-> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18~1,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19~0,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSNAIL1 +  ProteinSNAIL1 <-> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19~1,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSOX2 +  ProteinSOX2 <-> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24~0,p25,p26,p27,p28,p29) +  ProteinTWIST1 +  ProteinTWIST1 <-> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24~1,p25,p26,p27,p28,p29) h,f
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinBrachyury +  ProteinBrachyury <-> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~1,p27,p28,p29) h,f
+    NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9~0,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinGATA4 +  ProteinGATA4 <-> NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinISL1 +  ProteinISL1 <-> NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNANOG +  ProteinNANOG <-> NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinOCT4 +  ProteinOCT4 <-> NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSOX2 +  ProteinSOX2 <-> NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinBrachyury +  ProteinBrachyury <-> NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~1,p27,p28,p29) h,f
+    NKX25(p1,p2~0,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinbMHC +  ProteinbMHC <-> NKX25(p1,p2~1,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9~0,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinGATA4 +  ProteinGATA4 <-> NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinISL1 +  ProteinISL1 <-> NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~0,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinKLF4 +  ProteinKLF4 <-> NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~1,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~0,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinMEF2C +  ProteinMEF2C <-> NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~0,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNKX25 +  ProteinNKX25 <-> NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~1,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinOCT4 +  ProteinOCT4 <-> NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSOX2 +  ProteinSOX2 <-> NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22~0,p23,p24,p25,p26,p27,p28,p29) +  ProteinTBX5 +  ProteinTBX5 <-> NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22~1,p23,p24,p25,p26,p27,p28,p29) h,f
+    NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28~0,p29) +  ProteinMLC2v +  ProteinMLC2v <-> NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28~1,p29) h,f
+    OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinISL1 +  ProteinISL1 <-> OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNANOG +  ProteinNANOG <-> OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinOCT4 +  ProteinOCT4 <-> OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSOX2 +  ProteinSOX2 <-> OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26,p27,p28,p29) +  ProteinTGFb1 +  ProteinTGFb1 <-> OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~1,p24,p25,p26,p27,p28,p29) h,f
+    OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinBrachyury +  ProteinBrachyury <-> OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~1,p27,p28,p29) h,f
+    Ripply2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14~0,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinMESP1 +  ProteinMESP1 <-> Ripply2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14~1,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    SNAIL1(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinEcadherin +  ProteinEcadherin <-> SNAIL1(p1,p2,p3,p4,p5,p6~1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    SNAIL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20~0,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSNAIL2 +  ProteinSNAIL2 <-> SNAIL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20~1,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    SNAIL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26,p27,p28,p29) +  ProteinTGFb1 +  ProteinTGFb1 <-> SNAIL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~1,p24,p25,p26,p27,p28,p29) h,f
+    SNAIL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24~0,p25,p26,p27,p28,p29) +  ProteinTWIST1 +  ProteinTWIST1 <-> SNAIL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24~1,p25,p26,p27,p28,p29) h,f
+    SNAIL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29~0) +  Proteinvimentin +  Proteinvimentin <-> SNAIL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29~1) h,f
+    SNAIL2(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinEcadherin +  ProteinEcadherin <-> SNAIL2(p1,p2,p3,p4,p5,p6~1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    SNAIL2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20~0,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSNAIL2 +  ProteinSNAIL2 <-> SNAIL2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20~1,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    SNAIL2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29~0) +  Proteinvimentin +  Proteinvimentin <-> SNAIL2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29~1) h,f
+    SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinISL1 +  ProteinISL1 <-> SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNANOG +  ProteinNANOG <-> SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinOCT4 +  ProteinOCT4 <-> SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSOX2 +  ProteinSOX2 <-> SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26,p27,p28,p29) +  ProteinTGFb1 +  ProteinTGFb1 <-> SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~1,p24,p25,p26,p27,p28,p29) h,f
+    SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinBrachyury +  ProteinBrachyury <-> SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~1,p27,p28,p29) h,f
+    TBX5(p1,p2,p3,p4,p5,p6,p7,p8,p9~0,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinGATA4 +  ProteinGATA4 <-> TBX5(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    TBX5(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~0,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinMEF2C +  ProteinMEF2C <-> TBX5(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    TBX5(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~0,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNKX25 +  ProteinNKX25 <-> TBX5(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~1,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    TBX5(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22~0,p23,p24,p25,p26,p27,p28,p29) +  ProteinTBX5 +  ProteinTBX5 <-> TBX5(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22~1,p23,p24,p25,p26,p27,p28,p29) h,f
+    TGFb1(p1,p2,p3,p4,p5~0,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteincMYC +  ProteincMYC <-> TGFb1(p1,p2,p3,p4,p5~1,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    TGFb1(p1,p2,p3,p4,p5,p6,p7,p8~0,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinFLK1 +  ProteinFLK1 <-> TGFb1(p1,p2,p3,p4,p5,p6,p7,p8~1,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    TGFb1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~0,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinKLF4 +  ProteinKLF4 <-> TGFb1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~1,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    TGFb1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~0,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinMEF2C +  ProteinMEF2C <-> TGFb1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    TGFb1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19~0,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSNAIL1 +  ProteinSNAIL1 <-> TGFb1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19~1,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    TGFb1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20~0,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSNAIL2 +  ProteinSNAIL2 <-> TGFb1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20~1,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    TGFb1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24~0,p25,p26,p27,p28,p29) +  ProteinTWIST1 +  ProteinTWIST1 <-> TGFb1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24~1,p25,p26,p27,p28,p29) h,f
+    TWIST1(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinEcadherin +  ProteinEcadherin <-> TWIST1(p1,p2,p3,p4,p5,p6~1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    TWIST1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20~0,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSNAIL2 +  ProteinSNAIL2 <-> TWIST1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20~1,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    TWIST1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26,p27,p28,p29) +  ProteinTGFb1 +  ProteinTGFb1 <-> TWIST1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~1,p24,p25,p26,p27,p28,p29) h,f
+    TWIST1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29~0) +  Proteinvimentin +  Proteinvimentin <-> TWIST1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29~1) h,f
+    WNT3A(p1,p2,p3,p4,p5~0,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteincMYC +  ProteincMYC <-> WNT3A(p1,p2,p3,p4,p5~1,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9~0,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinGATA4 +  ProteinGATA4 <-> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinISL1 +  ProteinISL1 <-> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~0,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinMEF2C +  ProteinMEF2C <-> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14~0,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinMESP1 +  ProteinMESP1 <-> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14~1,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNANOG +  ProteinNANOG <-> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~0,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNKX25 +  ProteinNKX25 <-> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~1,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinOCT4 +  ProteinOCT4 <-> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSOX2 +  ProteinSOX2 <-> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23,p24,p25,p26,p27,p28,p29) h,f
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22~0,p23,p24,p25,p26,p27,p28,p29) +  ProteinTBX5 +  ProteinTBX5 <-> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22~1,p23,p24,p25,p26,p27,p28,p29) h,f
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24~0,p25,p26,p27,p28,p29) +  ProteinTWIST1 +  ProteinTWIST1 <-> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24~1,p25,p26,p27,p28,p29) h,f
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25~0,p26,p27,p28,p29) +  ProteinWNT3A +  ProteinWNT3A <-> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25~1,p26,p27,p28,p29) h,f
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinBrachyury +  ProteinBrachyury <-> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~1,p27,p28,p29) h,f
+    ActivinA(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11~1,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) -> ActivinA(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11~1,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) + ProteinActivinA g
+    ActivinA(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) -> ActivinA(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) + ProteinActivinA g
+    ActivinA(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26~1,p27,p28,p29) -> ActivinA(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26~1,p27,p28,p29) + ProteinActivinA g
+    ProteinActivinA -> 0 k
+    bMHC(p1,p2~1,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> bMHC(p1,p2~1,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinbMHC g
+     ProteinbMHC -> 0 k
+    BMP4(p1,p2,p3,p4,p5,p6~1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> BMP4(p1,p2,p3,p4,p5,p6~1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinBMP4 g
+    BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinBMP4 g
+    BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~1,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~1,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinBMP4 g
+    BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinBMP4 g
+    BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23,p24,p25,p26,p27,p28,p29) -> BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinBMP4 g
+    BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22~1,p23,p24,p25,p26,p27,p28,p29) -> BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22~1,p23,p24,p25,p26,p27,p28,p29) +  ProteinBMP4 g
+    BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~1,p27,p28,p29) -> BMP4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~1,p27,p28,p29) +  ProteinBMP4 g
+     ProteinBMP4 -> 0 k
+    Cavelolin1(p1,p2,p3,p4~1,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> Cavelolin1(p1,p2,p3,p4~1,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinCavelolin1 g
+     ProteinCavelolin1 -> 0 k
+     ProteincMYC -> 0 k
+    Ecadherin(p1,p2,p3,p4,p5,p6~1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> Ecadherin(p1,p2,p3,p4,p5,p6~1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinEcadherin g
+    Ecadherin(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14~1,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> Ecadherin(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14~1,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinEcadherin g
+    Ecadherin(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> Ecadherin(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinEcadherin g
+     ProteinEcadherin -> 0 k
+    FGF2(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> FGF2(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinFGF2 g
+    FGF2(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> FGF2(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinFGF2 g
+    FGF2(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24~1,p25,p26,p27,p28,p29) -> FGF2(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24~1,p25,p26,p27,p28,p29) +  ProteinFGF2 g
+     ProteinFGF2 -> 0 k
+    FLK1(p1,p2,p3,p4,p5,p6,p7,p8~1,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> FLK1(p1,p2,p3,p4,p5,p6,p7,p8~1,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinFLK1 g
+    FLK1(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> FLK1(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinFLK1 g
+    FLK1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> FLK1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinFLK1 g
+    FLK1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22~1,p23,p24,p25,p26,p27,p28,p29) -> FLK1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22~1,p23,p24,p25,p26,p27,p28,p29) +  ProteinFLK1 g
+     ProteinFLK1 -> 0 k
+    GATA4(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> GATA4(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinGATA4 g
+    GATA4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> GATA4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinGATA4 g
+    GATA4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~1,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> GATA4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~1,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinGATA4 g
+    GATA4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27~1,p28,p29) -> GATA4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27~1,p28,p29) +  ProteinGATA4 g
+     ProteinGATA4 -> 0 k
+    ISL1(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> ISL1(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinISL1 g
+    ISL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> ISL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinISL1 g
+    ISL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> ISL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinISL1 g
+    ISL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~1,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> ISL1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~1,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinISL1 g
+     ProteinISL1 -> 0 k
+    KLF4(p1,p2,p3,p4,p5~1,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26,p27,p28,p29) -> KLF4(p1,p2,p3,p4,p5~1,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26,p27,p28,p29) +  ProteinKLF4 g
+    KLF4(p1,p2,p3,p4,p5,p6~1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26,p27,p28,p29) -> KLF4(p1,p2,p3,p4,p5,p6~1,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26,p27,p28,p29) +  ProteinKLF4 g
+    KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~1,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26,p27,p28,p29) -> KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~1,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26,p27,p28,p29) +  ProteinKLF4 g
+    KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26,p27,p28,p29) -> KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26,p27,p28,p29) +  ProteinKLF4 g
+    KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23~0,p24,p25,p26,p27,p28,p29) -> KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23~0,p24,p25,p26,p27,p28,p29) +  ProteinKLF4 g
+    KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23~0,p24,p25,p26,p27,p28,p29) -> KLF4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23~0,p24,p25,p26,p27,p28,p29) +  ProteinKLF4 g
+     ProteinKLF4 -> 0 k
+    LIF(p1,p2,p3,p4,p5~1,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> LIF(p1,p2,p3,p4,p5~1,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinLIF g
+    LIF(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> LIF(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinLIF g
+    LIF(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> LIF(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinLIF g
+    LIF(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23,p24,p25,p26,p27,p28,p29) -> LIF(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinLIF g
+     ProteinLIF -> 0 k
+    MEF2C(p1,p2~1,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> MEF2C(p1,p2~1,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinMEF2C g
+    MEF2C(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> MEF2C(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinMEF2C g
+    MEF2C(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> MEF2C(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinMEF2C g
+    MEF2C(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27~1,p28,p29) -> MEF2C(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27~1,p28,p29) +  ProteinMEF2C g
+    MEF2C(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28~1,p29) -> MEF2C(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28~1,p29) +  ProteinMEF2C g
+     ProteinMEF2C -> 0 k
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8~1,p9,p10,p11,p12,p13,p14,p15~0,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26~0,p27,p28,p29) -> MESP1(p1,p2,p3,p4,p5,p6,p7,p8~1,p9,p10,p11,p12,p13,p14,p15~0,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinMESP1 g
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15~0,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26~0,p27,p28,p29) -> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15~0,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinMESP1 g
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11,p12,p13,p14,p15~0,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26~0,p27,p28,p29) -> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11,p12,p13,p14,p15~0,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinMESP1 g
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15~0,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26~0,p27,p28,p29) -> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15~0,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinMESP1 g
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14~1,p15~0,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26~0,p27,p28,p29) -> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14~1,p15~0,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinMESP1 g
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16~1,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26~0,p27,p28,p29) -> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16~1,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinMESP1 g
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16,p17~0,p18~1,p19,p20,p21~0,p22,p23,p24,p25,p26~0,p27,p28,p29) -> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16,p17~0,p18~1,p19,p20,p21~0,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinMESP1 g
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16,p17~0,p18,p19~1,p20,p21~0,p22,p23,p24,p25,p26~0,p27,p28,p29) -> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16,p17~0,p18,p19~1,p20,p21~0,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinMESP1 g
+    MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24~1,p25,p26~0,p27,p28,p29) -> MESP1(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~0,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24~1,p25,p26~0,p27,p28,p29) +  ProteinMESP1 g
+     ProteinMESP1 -> 0 k
+    NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9~0,p10~0,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~0,p27,p28,p29) -> NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9~0,p10~0,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinNANOG g
+    NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9~0,p10~0,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26~0,p27,p28,p29) -> NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9~0,p10~0,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinNANOG g
+    NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9~0,p10~0,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23,p24,p25,p26~0,p27,p28,p29) -> NANOG(p1,p2,p3,p4,p5,p6,p7,p8,p9~0,p10~0,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23,p24,p25,p26~0,p27,p28,p29) +  ProteinNANOG g
+     ProteinNANOG -> 0 k
+    NKX25(p1,p2~1,p3,p4,p5,p6,p7,p8,p9,p10,p11~0,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) -> NKX25(p1,p2~1,p3,p4,p5,p6,p7,p8,p9,p10,p11~0,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNKX25 g
+    NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11~0,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) -> NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11~0,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNKX25 g
+    NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11~0,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) -> NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11~0,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNKX25 g
+    NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~0,p12,p13~1,p14,p15,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) -> NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~0,p12,p13~1,p14,p15,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNKX25 g
+    NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~0,p12,p13,p14,p15,p16~1,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) -> NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~0,p12,p13,p14,p15,p16~1,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinNKX25 g
+    NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~0,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21~0,p22~1,p23,p24,p25,p26,p27,p28,p29) -> NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~0,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21~0,p22~1,p23,p24,p25,p26,p27,p28,p29) +  ProteinNKX25 g
+    NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~0,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28~1,p29) -> NKX25(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11~0,p12,p13,p14,p15,p16,p17~0,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28~1,p29) +  ProteinNKX25 g
+     ProteinNKX25 -> 0 k
+    OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26~0,p27,p28,p29) -> OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26~0,p27,p28,p29) +  ProteinOCT4 g
+    OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23~0,p24,p25,p26~0,p27,p28,p29) -> OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23~0,p24,p25,p26~0,p27,p28,p29) +  ProteinOCT4 g
+    OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23~0,p24,p25,p26~0,p27,p28,p29) -> OCT4(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23~0,p24,p25,p26~0,p27,p28,p29) +  ProteinOCT4 g
+     ProteinOCT4 -> 0 k
+     ProteinRipply2 -> 0 k
+    SNAIL1(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20~1,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> SNAIL1(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20~1,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSNAIL1 g
+    SNAIL1(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~1,p24,p25,p26,p27,p28,p29) -> SNAIL1(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~1,p24,p25,p26,p27,p28,p29) +  ProteinSNAIL1 g
+    SNAIL1(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24~1,p25,p26,p27,p28,p29) -> SNAIL1(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24~1,p25,p26,p27,p28,p29) +  ProteinSNAIL1 g
+    SNAIL1(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29~1) -> SNAIL1(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29~1) +  ProteinSNAIL1 g
+     ProteinSNAIL1 -> 0 k
+    SNAIL2(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20~1,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> SNAIL2(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20~1,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinSNAIL2 g
+    SNAIL2(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29~1) -> SNAIL2(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29~1) +  ProteinSNAIL2 g
+     ProteinSNAIL2 -> 0 k
+    SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26~0,p27,p28,p29) -> SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21,p22,p23~0,p24,p25,p26~0,p27,p28,p29) +  ProteinSOX2 g
+    SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23~0,p24,p25,p26~0,p27,p28,p29) -> SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21,p22,p23~0,p24,p25,p26~0,p27,p28,p29) +  ProteinSOX2 g
+    SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23~0,p24,p25,p26~0,p27,p28,p29) -> SOX2(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~0,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~1,p22,p23~0,p24,p25,p26~0,p27,p28,p29) +  ProteinSOX2 g
+     ProteinSOX2 -> 0 k
+    TBX5(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> TBX5(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinTBX5 g
+    TBX5(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> TBX5(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinTBX5 g
+    TBX5(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~1,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> TBX5(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~1,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinTBX5 g
+    TBX5(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22~1,p23,p24,p25,p26,p27,p28,p29) -> TBX5(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22~1,p23,p24,p25,p26,p27,p28,p29) +  ProteinTBX5 g
+     ProteinTBX5 -> 0 k
+    TGFb1(p1,p2,p3,p4,p5~0,p6,p7,p8~0,p9,p10,p11~0,p12,p13~0,p14,p15,p16,p17,p18,p19~1,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> TGFb1(p1,p2,p3,p4,p5~0,p6,p7,p8~0,p9,p10,p11~0,p12,p13~0,p14,p15,p16,p17,p18,p19~1,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinTGFb1 g
+    TGFb1(p1,p2,p3,p4,p5~0,p6,p7,p8~0,p9,p10,p11~0,p12,p13~0,p14,p15,p16,p17,p18,p19,p20~1,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> TGFb1(p1,p2,p3,p4,p5~0,p6,p7,p8~0,p9,p10,p11~0,p12,p13~0,p14,p15,p16,p17,p18,p19,p20~1,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinTGFb1 g
+    TGFb1(p1,p2,p3,p4,p5~0,p6,p7,p8~0,p9,p10,p11~0,p12,p13~0,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24~1,p25,p26,p27,p28,p29) -> TGFb1(p1,p2,p3,p4,p5~0,p6,p7,p8~0,p9,p10,p11~0,p12,p13~0,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24~1,p25,p26,p27,p28,p29) +  ProteinTGFb1 g
+     ProteinTGFb1 -> 0 k
+    TWIST1(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20~1,p21,p22,p23,p24,p25,p26,p27,p28,p29) -> TWIST1(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20~1,p21,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinTWIST1 g
+    TWIST1(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~1,p24,p25,p26,p27,p28,p29) -> TWIST1(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23~1,p24,p25,p26,p27,p28,p29) +  ProteinTWIST1 g
+    TWIST1(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29~1) -> TWIST1(p1,p2,p3,p4,p5,p6~0,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29~1) +  ProteinTWIST1 g
+     ProteinTWIST1 -> 0 k
+    WNT3A(p1,p2,p3,p4,p5~1,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) -> WNT3A(p1,p2,p3,p4,p5~1,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinWNT3A g
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) -> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9~1,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinWNT3A g
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) -> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10~1,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinWNT3A g
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) -> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13~1,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinWNT3A g
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14~1,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) -> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14~1,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinWNT3A g
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) -> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15~1,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinWNT3A g
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~1,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) -> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16~1,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinWNT3A g
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) -> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17~1,p18,p19,p20,p21~0,p22,p23,p24,p25,p26,p27,p28,p29) +  ProteinWNT3A g
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22~1,p23,p24,p25,p26,p27,p28,p29) -> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22~1,p23,p24,p25,p26,p27,p28,p29) +  ProteinWNT3A g
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24~1,p25,p26,p27,p28,p29) -> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24~1,p25,p26,p27,p28,p29) +  ProteinWNT3A g
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25~1,p26,p27,p28,p29) -> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25~1,p26,p27,p28,p29) +  ProteinWNT3A g
+    WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26~1,p27,p28,p29) -> WNT3A(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21~0,p22,p23,p24,p25,p26~1,p27,p28,p29) +  ProteinWNT3A g
+     ProteinWNT3A -> 0 k
+     ProteinBrachyury -> 0 k
+     ProteinaMHC -> 0 k
+     ProteinMLC2v -> 0 k
+     Proteinvimentin -> 0 k
+end reaction rules 
+end model
+
+generate_network({overwrite=>1})
+simulate_ssa({t_start=>0,t_end=>100,n_steps=>100})
