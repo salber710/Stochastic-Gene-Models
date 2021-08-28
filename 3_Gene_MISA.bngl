@@ -1,0 +1,63 @@
+begin model
+begin parameters 
+    h 1.000000e-02 
+    f 1.000000e+01 
+    g 2.500000e+02 
+    k 2.500000e-01
+    num 1 
+end parameters 
+
+begin molecule types 
+    gene1(p1~0~1,p2~0~1,p3~0~1) 
+    gene2(p1~0~1,p2~0~1,p3~0~1) 
+    gene3(p1~0~1,p2~0~1,p3~0~1) 
+    protein1 
+    protein2 
+    protein3 
+end molecule types
+begin species 
+    gene1(p1~0,p2~0,p3~0) 1 
+    gene2(p1~0,p2~0,p3~0) 1 
+    gene3(p1~0,p2~0,p3~0) 1 
+    protein1 num 
+    protein2 num 
+    protein3 num 
+end species
+begin observables 
+    Molecules protein1 protein1 
+    Molecules protein2 protein2 
+    Molecules protein3 protein3 
+end observables 
+begin reaction rules 
+    gene1(p1~0,p2,p3) + protein1 + protein1 <-> gene1(p1~1,p2,p3) h,f
+    gene1(p1,p2~0,p3) + protein2 + protein2 <-> gene1(p1,p2~1,p3) h,f
+    gene1(p1,p2,p3~0) + protein3 + protein3 <-> gene1(p1,p2,p3~1) h,f
+    gene2(p1~0,p2,p3) + protein1 + protein1 <-> gene2(p1~1,p2,p3) h,f
+    gene2(p1,p2~0,p3) + protein2 + protein2 <-> gene2(p1,p2~1,p3) h,f
+    gene2(p1,p2,p3~0) + protein3 + protein3 <-> gene2(p1,p2,p3~1) h,f
+    gene3(p1~0,p2,p3) + protein1 + protein1 <-> gene3(p1~1,p2,p3) h,f
+    gene3(p1,p2~0,p3) + protein2 + protein2 <-> gene3(p1,p2~1,p3) h,f
+    gene3(p1,p2,p3~0) + protein3 + protein3 <-> gene3(p1,p2,p3~1) h,f
+    gene1(p1~1,p2~1,p3~1) -> gene1(p1~1,p2~1,p3~1) + protein1 g
+    gene1(p1~1,p2~1,p3~0) -> gene1(p1~1,p2~1,p3~0) + protein1 g
+    gene1(p1~1,p2~0,p3~1) -> gene1(p1~1,p2~0,p3~1) + protein1 g
+    gene1(p1~1,p2~0,p3~0) -> gene1(p1~1,p2~0,p3~0) + protein1 g
+    gene1(p1~0,p2~0,p3~0) -> gene1(p1~0,p2~0,p3~0) + protein1 g
+    protein1 -> 0 k
+    gene2(p1~1,p2~1,p3~1) -> gene2(p1~1,p2~1,p3~1) + protein2 g
+    gene2(p1~1,p2~1,p3~0) -> gene2(p1~1,p2~1,p3~0) + protein2 g
+    gene2(p1~0,p2~1,p3~1) -> gene2(p1~0,p2~1,p3~1) + protein2 g
+    gene2(p1~0,p2~1,p3~0) -> gene2(p1~0,p2~1,p3~0) + protein2 g
+    gene2(p1~0,p2~0,p3~0) -> gene2(p1~0,p2~0,p3~0) + protein2 g
+    protein2 -> 0 k
+    gene3(p1~1,p2~1,p3~1) -> gene3(p1~1,p2~1,p3~1) + protein3 g
+    gene3(p1~0,p2~1,p3~1) -> gene3(p1~0,p2~1,p3~1) + protein3 g
+    gene3(p1~1,p2~0,p3~1) -> gene3(p1~1,p2~0,p3~1) + protein3 g
+    gene3(p1~0,p2~0,p3~1) -> gene3(p1~0,p2~0,p3~1) + protein3 g
+    gene3(p1~0,p2~0,p3~0) -> gene3(p1~0,p2~0,p3~0) + protein3 g
+    protein3 -> 0 k
+end reaction rules 
+end model
+
+generate_network({overwrite=>1})
+simulate_ssa({t_start=>0,t_end=>6000000,n_steps=>6000000})
