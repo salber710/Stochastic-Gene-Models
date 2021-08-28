@@ -1,0 +1,343 @@
+%this script is a demo for how a gene regulatory network with Boolean logic
+%is translated into a biochemical reaction network. The script then
+%generates a .bngl file which encodes these reactions as input to the
+%BioNetGen stochastic simulation software. The reason for having a script
+%like this is that, for larger gene networks (such as in cardiomyocytes),
+%it becomes tedious to write the reaction network bngl file manually. This
+%script only requires inputting the Boolean Logic Functions in matrix
+%format.
+
+%The model network is the two-gene "MISA" network. The Boolean functions
+%for the network are taken from figure 2 in Zhou, et al. "Relative
+%Stability of Network States in Boolean Network Models of Gene Regulation
+%in Development".
+
+%First, write the Boolean logic functions for the Genes. The genes are
+%ordered [gene1, gene2, ...]; "1" - gene is on. "0" gene is off.
+NumGenes=2; %number of genes in the network
+LogicFcns=cell(1,NumGenes); %initialize as cell array to store logic fcns.
+%the size of the cell should correspond to number of genes in the network
+
+LogicFcns{1}=[1,0;1,1;0,0];
+
+
+%logic functions for gene1. Number of columns in
+%matrix should correspond to number of genes in network
+%For example, the second row states: gene 1 is "on" in the next step if
+%gene 1 and gene 2 were "on" in previous step
+
+%logic functions for gene2
+
+LogicFcns{2}=[0,1;1,1;0,0]; 
+
+GeneList={'gene1','gene2','gene3'}; %number of gene names must equal NumGenes
+ProteinList={'protein1','protein2','protein3'}; %there should be one protein speices for each gene
+
+%Description of model parameters: h-TF to DNA binding f-TF unbinding, g-
+%protein production rate, k-protein degradation rate. The parameter values
+%are in time units of per-hour
+h=1E-5;
+f=1E-5;
+g=250;
+k=0.25;
+
+ParNames={'h','f','g','k'};
+ParValues=[h,f,g,k];
+
+%InitialCopyNumber=15; %this is set somewhat arbitrarily-the initial number of proteins
+lower_lim = 3;
+uper_lim = 100;
+InitialCopyNumber = round((uper_lim - lower_lim).*rand(1,1) + lower_lim);
+%set the Bionetgen file
+%and open for writing
+BNGfilename='MISA_2_Gene.bngl';
+fid=fopen(BNGfilename,'w+');
+
+%Write the block of parameters and their numeric values
+fprintf(fid,'begin model\nbegin parameters \n');
+for i = 1:length(ParValues)
+    fprintf(fid,'    %s %e \n',ParNames{i},ParValues(i));
+end
+fprintf(fid,'end parameters \n');
+fprintf(fid,'\n');
+
+%Write the block of molecule types, using tilde notation for the different
+%possible binding configurations to each promoter 'p1~0~1' means protein1 can be
+%unbound (0) or bound (1)
+fprintf(fid,'begin molecule types \n');
+for i=1:NumGenes
+    GeneName=GeneList{i};
+    tempstr=[GeneName '('];
+    for j=1:NumGenes-1
+        tempstr=[tempstr 'p' num2str(j) '~0~1,'];
+    end
+    tempstr=[tempstr 'p' num2str(NumGenes) '~0~1)'];
+    tempstr=['    ' tempstr ' \n'];
+    fprintf(fid,tempstr)
+end
+%write the protein types
+for i=1:NumGenes
+    ProteinName=ProteinList{i};
+    fprintf(fid,['    ' ProteinName ' \n']);
+end
+fprintf(fid,'end molecule types\n');
+
+%Write the block of species, which sets the initial conditions
+fprintf(fid,'begin species \n');
+%this loop sets all the genes in the fully unbound configuration to start
+for i=1:NumGenes
+    GeneName=GeneList{i};
+    tempstr=[GeneName '('];
+    for j=1:NumGenes-1
+        tempstr=[tempstr 'p' num2str(j) '~0,'];
+    end
+    tempstr=[tempstr 'p' num2str(NumGenes) '~0) 1']; %#ok<*AGROW>
+    tempstr=['    ' tempstr ' \n'];
+    fprintf(fid,tempstr)
+end
+%set the initial copy number of the protein molecules
+for i=1:NumGenes
+    ProteinName=ProteinList{i};
+    fprintf(fid,['    ' ProteinName ' ' num2str(InitialCopyNumber) ' \n']);
+end
+fprintf(fid,'end species\n');
+
+%this loop sets the observables, which will be written to the trajectory
+%file (.gdat) during the simulation. Currently, it only keeps track of the
+%protein species
+fprintf(fid,'begin observables \n');
+for i=1:NumGenes
+    ProteinName=ProteinList{i};
+    fprintf(fid,['    Molecules ' ProteinName ' ' ProteinName ' \n']);
+end
+fprintf(fid,'end observables \n');
+
+%this loop writes all possible reactions in the network
+fprintf(fid,'begin reaction rules \n');
+%start with binding/unbinding reactions
+for i=1:NumGenes
+    GeneName=GeneList{i};
+    for j=1:NumGenes
+        ProteinName=ProteinList{j};
+        tempstr_u='(';
+        tempstr_b='(';
+        for k=1:NumGenes-1
+            if k==j
+                tempstr_u=[tempstr_u 'p' num2str(j) '~0,'];
+                tempstr_b=[tempstr_b 'p' num2str(j) '~1,'];
+            else
+                tempstr_u=[tempstr_u 'p' num2str(k) ','];
+                tempstr_b=[tempstr_b 'p' num2str(k) ','];
+            end
+        end
+        k=NumGenes;
+        if k==j
+            tempstr_u=[tempstr_u 'p' num2str(j) '~0)'];
+            tempstr_b=[tempstr_b 'p' num2str(j) '~1)'];
+        else
+            tempstr_u=[tempstr_u 'p' num2str(k) ')'];
+            tempstr_b=[tempstr_b 'p' num2str(k) ')'];
+        end
+        tempstr_u
+        tempstr_b
+        fprintf(fid,['    ' GeneName tempstr_u ' + ' ProteinName ' + ' ProteinName ' <-> ' GeneName tempstr_b ' h,f\n']);
+    end
+end
+
+%this block takes the logic functions and writes the protein production
+%reactions from them
+for i=1:NumGenes
+    GeneName=GeneList{i};
+    ProteinName=ProteinList{i};
+    for j=1:size(LogicFcns{i},1)
+        tempstr='(';
+        for k=1:NumGenes-1
+            bound=num2str(LogicFcns{i}(j,k));
+            tempstr=[tempstr 'p' num2str(k) '~' num2str(LogicFcns{i}(j,k)) ','];
+        end
+        k=NumGenes;
+        bound=num2str(LogicFcns{i}(j,k));
+        tempstr=[tempstr 'p' num2str(k) '~' num2str(LogicFcns{i}(j,k)) ')'];
+        fprintf(fid,['    ' GeneName tempstr ' -> ' GeneName tempstr ' + ' ProteinName ' g\n']) %#ok<*PRTCAL>
+    end
+     fprintf(fid,['    ' ProteinName ' -> 0 k\n']); %protein death reactions
+end
+fprintf(fid,'end reaction rules \n'); 
+fprintf(fid,'end model\n');
+fprintf(fid,'\n');
+
+fprintf(fid,'generate_network({overwrite=>1})\n');
+fprintf(fid,'simulate_ssa({t_start=>0,t_end=>3000,n_steps=>3000})\n');
+
+%this script is a demo for how a gene regulatory network with Boolean logic
+%is translated into a biochemical reaction network. The script then
+%generates a .bngl file which encodes these reactions as input to the
+%BioNetGen stochastic simulation software. The reason for having a script
+%like this is that, for larger gene networks (such as in cardiomyocytes),
+%it becomes tedious to write the reaction network bngl file manually. This
+%script only requires inputting the Boolean Logic Functions in matrix
+%format.
+
+%The model network is the two-gene "MISA" network. The Boolean functions
+%for the network are taken from figure 2 in Zhou, et al. "Relative
+%Stability of Network States in Boolean Network Models of Gene Regulation
+%in Development".
+
+%First, write the Boolean logic functions for the Genes. The genes are
+%ordered [gene1, gene2, ...]; "1" - gene is on. "0" gene is off.
+NumGenes=2; %number of genes in the network
+LogicFcns=cell(1,NumGenes); %initialize as cell array to store logic fcns.
+%the size of the cell should correspond to number of genes in the network
+
+LogicFcns{1}=[1,0;1,1;0,0];
+
+
+%logic functions for gene1. Number of columns in
+%matrix should correspond to number of genes in network
+%For example, the second row states: gene 1 is "on" in the next step if
+%gene 1 and gene 2 were "on" in previous step
+
+%logic functions for gene2
+
+LogicFcns{2}=[0,1;1,1;0,0]; 
+
+GeneList={'gene1','gene2','gene3'}; %number of gene names must equal NumGenes
+ProteinList={'protein1','protein2','protein3'}; %there should be one protein speices for each gene
+
+%Description of model parameters: h-TF to DNA binding f-TF unbinding, g-
+%protein production rate, k-protein degradation rate. The parameter values
+%are in time units of per-hour
+h=1E-5;
+f=1E-5;
+g=250;
+k=0.25;
+
+ParNames={'h','f','g','k'};
+ParValues=[h,f,g,k];
+
+%InitialCopyNumber=15; %this is set somewhat arbitrarily-the initial number of proteins
+lower_lim = 3;
+uper_lim = 100;
+InitialCopyNumber = round((uper_lim - lower_lim).*rand(1,1) + lower_lim);
+%set the Bionetgen file
+%and open for writing
+BNGfilename='MISA_2_Gene.bngl';
+fid=fopen(BNGfilename,'w+');
+
+%Write the block of parameters and their numeric values
+fprintf(fid,'begin model\nbegin parameters \n');
+for i = 1:length(ParValues)
+    fprintf(fid,'    %s %e \n',ParNames{i},ParValues(i));
+end
+fprintf(fid,'end parameters \n');
+fprintf(fid,'\n');
+
+%Write the block of molecule types, using tilde notation for the different
+%possible binding configurations to each promoter 'p1~0~1' means protein1 can be
+%unbound (0) or bound (1)
+fprintf(fid,'begin molecule types \n');
+for i=1:NumGenes
+    GeneName=GeneList{i};
+    tempstr=[GeneName '('];
+    for j=1:NumGenes-1
+        tempstr=[tempstr 'p' num2str(j) '~0~1,'];
+    end
+    tempstr=[tempstr 'p' num2str(NumGenes) '~0~1)'];
+    tempstr=['    ' tempstr ' \n'];
+    fprintf(fid,tempstr)
+end
+%write the protein types
+for i=1:NumGenes
+    ProteinName=ProteinList{i};
+    fprintf(fid,['    ' ProteinName ' \n']);
+end
+fprintf(fid,'end molecule types\n');
+
+%Write the block of species, which sets the initial conditions
+fprintf(fid,'begin species \n');
+%this loop sets all the genes in the fully unbound configuration to start
+for i=1:NumGenes
+    GeneName=GeneList{i};
+    tempstr=[GeneName '('];
+    for j=1:NumGenes-1
+        tempstr=[tempstr 'p' num2str(j) '~0,'];
+    end
+    tempstr=[tempstr 'p' num2str(NumGenes) '~0) 1']; %#ok<*AGROW>
+    tempstr=['    ' tempstr ' \n'];
+    fprintf(fid,tempstr)
+end
+%set the initial copy number of the protein molecules
+for i=1:NumGenes
+    ProteinName=ProteinList{i};
+    fprintf(fid,['    ' ProteinName ' ' num2str(InitialCopyNumber) ' \n']);
+end
+fprintf(fid,'end species\n');
+
+%this loop sets the observables, which will be written to the trajectory
+%file (.gdat) during the simulation. Currently, it only keeps track of the
+%protein species
+fprintf(fid,'begin observables \n');
+for i=1:NumGenes
+    ProteinName=ProteinList{i};
+    fprintf(fid,['    Molecules ' ProteinName ' ' ProteinName ' \n']);
+end
+fprintf(fid,'end observables \n');
+
+%this loop writes all possible reactions in the network
+fprintf(fid,'begin reaction rules \n');
+%start with binding/unbinding reactions
+for i=1:NumGenes
+    GeneName=GeneList{i};
+    for j=1:NumGenes
+        ProteinName=ProteinList{j};
+        tempstr_u='(';
+        tempstr_b='(';
+        for k=1:NumGenes-1
+            if k==j
+                tempstr_u=[tempstr_u 'p' num2str(j) '~0,'];
+                tempstr_b=[tempstr_b 'p' num2str(j) '~1,'];
+            else
+                tempstr_u=[tempstr_u 'p' num2str(k) ','];
+                tempstr_b=[tempstr_b 'p' num2str(k) ','];
+            end
+        end
+        k=NumGenes;
+        if k==j
+            tempstr_u=[tempstr_u 'p' num2str(j) '~0)'];
+            tempstr_b=[tempstr_b 'p' num2str(j) '~1)'];
+        else
+            tempstr_u=[tempstr_u 'p' num2str(k) ')'];
+            tempstr_b=[tempstr_b 'p' num2str(k) ')'];
+        end
+        tempstr_u
+        tempstr_b
+        fprintf(fid,['    ' GeneName tempstr_u ' + ' ProteinName ' + ' ProteinName ' <-> ' GeneName tempstr_b ' h,f\n']);
+    end
+end
+
+%this block takes the logic functions and writes the protein production
+%reactions from them
+for i=1:NumGenes
+    GeneName=GeneList{i};
+    ProteinName=ProteinList{i};
+    for j=1:size(LogicFcns{i},1)
+        tempstr='(';
+        for k=1:NumGenes-1
+            bound=num2str(LogicFcns{i}(j,k));
+            tempstr=[tempstr 'p' num2str(k) '~' num2str(LogicFcns{i}(j,k)) ','];
+        end
+        k=NumGenes;
+        bound=num2str(LogicFcns{i}(j,k));
+        tempstr=[tempstr 'p' num2str(k) '~' num2str(LogicFcns{i}(j,k)) ')'];
+        fprintf(fid,['    ' GeneName tempstr ' -> ' GeneName tempstr ' + ' ProteinName ' g\n']) %#ok<*PRTCAL>
+    end
+     fprintf(fid,['    ' ProteinName ' -> 0 k\n']); %protein death reactions
+end
+fprintf(fid,'end reaction rules \n'); 
+fprintf(fid,'end model\n');
+fprintf(fid,'\n');
+
+fprintf(fid,'generate_network({overwrite=>1})\n');
+fprintf(fid,'simulate_ssa({t_start=>0,t_end=>3000,n_steps=>3000})\n');
+
+fclose(fid);
