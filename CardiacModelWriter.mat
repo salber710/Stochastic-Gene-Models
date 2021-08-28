@@ -1,0 +1,175 @@
+%this script translates a gene regulatory network with Boolean logic into a
+%biochemical reaction network. The script generates a .bngl file which
+%encodes these reactions as input to the BioNetGen stochastic simulation
+%software. The reason for having a script like this is that it is tedious
+%to write the reaction network bngl file manually. The script input is a
+%matrix of gene-gene interactions. "0" - no interaction "1" - activating,
+%"-1" - repressing, where the column is the source and the row is the
+%target. Then, the target gene is considered "active" when at least one
+%activator is bound, and no repressors are bound to it.
+
+%this is a made-up matrix of interactions--to be replaced with real matrix
+%from literature
+GeneInteractions=[0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0;0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0;0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0;0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0;0, 0, 0, 0, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0;0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0;0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0;0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0;0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0;0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0;0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0, 0, 0;0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0;0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0;0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, -1, 1, -1, 1, 1, 0, -1, 0, 0, 1, 0, -1, 0, 0, 0;0, 0, 0, 0, 0, 0, 0, 0, -1, -1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0;0, 1, 0, 0, 0, 0, 0, 0, 1, 1, -1, 0, 1, 0, 0, 1, -1, 0, 0, 0, -1, 1, 0, 0, 0, 0, 0, 1, 0;0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, -1, 0, 0, -1, 0, 0, 0;0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0;0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1;0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1;0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, -1, 0, 0, -1, 0, 0, 0;0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0;0, 0, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, -1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0;0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1;0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, -1, 1, 0, 1, 1, 1, 0, 0, 0;0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0;0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0;0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0;0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+NumGenes=29; %number of genes in the network
+
+GeneList={'ActivinA', 'bMHC', 'BMP4', 'Cavelolin1', 'cMYC', 'Ecadherin', 'FGF2', 'FLK1', 'GATA4', 'ISL1', 'KLF4', 'LIF', 'MEF2C', 'MESP1', 'NANOG', 'NKX25', 'OCT4', 'Ripply2', 'SNAIL1', 'SNAIL2', 'SOX2', 'TBX5', 'TGFb1', 'TWIST1', 'WNT3A', 'Brachyury', 'aMHC', 'MLC2v', 'vimentin'}; %number of gene names must equal NumGenes
+ProteinList={'ProteinActivinA', ' ProteinbMHC', ' ProteinBMP4', ' ProteinCavelolin1', ' ProteincMYC', ' ProteinEcadherin', ' ProteinFGF2', ' ProteinFLK1', ' ProteinGATA4', ' ProteinISL1', ' ProteinKLF4', ' ProteinLIF', ' ProteinMEF2C', ' ProteinMESP1', ' ProteinNANOG', ' ProteinNKX25', ' ProteinOCT4', ' ProteinRipply2', ' ProteinSNAIL1', ' ProteinSNAIL2', ' ProteinSOX2', ' ProteinTBX5', ' ProteinTGFb1', ' ProteinTWIST1', ' ProteinWNT3A', ' ProteinBrachyury', ' ProteinaMHC', ' ProteinMLC2v', ' Proteinvimentin'}; %there should be one protein speices for each gene
+
+%Description of model parameters: h-TF to DNA binding f-TF unbinding, g-
+%protein production rate, k-protein degradation rate. The parameter values
+%are in time units of per-hour
+h=1E-4;
+f=1E-4;
+g=250;
+k=0.25;
+
+ParNames={'h','f','g','k'};
+ParValues=[h,f,g,k];
+
+InitialCopyNumber=10; %this is set somewhat arbitrarily-the initial number of proteins
+%set the Bionetgen file and open for writing
+BNGfilename='Large_GRN.bngl';
+
+fid=fopen(BNGfilename,'w+');
+
+%Write the block of parameters and their numeric values
+fprintf(fid,'begin model\nbegin parameters \n');
+for i = 1:length(ParValues)
+    fprintf(fid,'    %s %e \n',ParNames{i},ParValues(i));
+end
+fprintf(fid,'end parameters \n');
+fprintf(fid,'\n');
+
+%Write the block of molecule types, using tilde notation for the different
+%possible binding configurations to each promoter 'p1~0~1' means protein1 can be
+%unbound (0) or bound (1)
+fprintf(fid,'begin molecule types \n');
+for i=1:NumGenes
+    GeneName=GeneList{i};
+    tempstr=[GeneName '('];
+    for j=1:NumGenes-1
+        tempstr=[tempstr 'p' num2str(j) '~0~1,'];
+    end
+    tempstr=[tempstr 'p' num2str(NumGenes) '~0~1)'];
+    tempstr=['    ' tempstr ' \n'];
+    fprintf(fid,tempstr)
+end
+%write the protein types
+for i=1:NumGenes
+    ProteinName=ProteinList{i};
+    fprintf(fid,['    ' ProteinName ' \n']);
+end
+fprintf(fid,'end molecule types\n');
+
+%Write the block of species, which sets the initial conditions
+fprintf(fid,'begin species \n');
+%this loop sets all the genes in the fully unbound configuration to start
+for i=1:NumGenes
+    GeneName=GeneList{i};
+    tempstr=[GeneName '('];
+    for j=1:NumGenes-1
+        tempstr=[tempstr 'p' num2str(j) '~0,'];
+    end
+    tempstr=[tempstr 'p' num2str(NumGenes) '~0) 1'];
+    tempstr=['    ' tempstr ' \n'];
+    fprintf(fid,tempstr)
+end
+%set the initial copy number of the protein molecules
+for i=1:NumGenes
+    ProteinName=ProteinList{i};
+    fprintf(fid,['    ' ProteinName ' ' num2str(InitialCopyNumber) ' \n']);
+end
+fprintf(fid,'end species\n');
+
+%this loop sets the observables, which will be written to the trajectory
+%file (.gdat) during the simulation. Currently, it only keeps track of the
+%protein species
+fprintf(fid,'begin observables \n');
+for i=1:NumGenes
+    ProteinName=ProteinList{i};
+    fprintf(fid,['    Molecules ' ProteinName ' ' ProteinName ' \n']);
+end
+fprintf(fid,'end observables \n');
+
+%begin to write all possible reactions in the network
+fprintf(fid,'begin reaction rules \n');
+
+%start with binding/unbinding reactions
+for i=1:NumGenes %loop over all the genes
+    %this loop figures out which proteins are regulators of the target
+    %gene, then it specifically enumerates the binding reactions for those
+    %regulators
+    GeneName=GeneList{i}; %the current gene is the target
+    RegulatorInds=find(GeneInteractions(i,:)); %find the indices of all genes in the network that regulate the target
+    for j=1:numel(RegulatorInds) %loop through the regulators
+        ProteinName=ProteinList{RegulatorInds(j)}; %name the regulator
+        tempstr_u='(';
+        tempstr_b='(';
+        for k=1:NumGenes-1
+            if k==RegulatorInds(j)
+                tempstr_u=[tempstr_u 'p' num2str(RegulatorInds(j)) '~0,'];
+                tempstr_b=[tempstr_b 'p' num2str(RegulatorInds(j)) '~1,'];
+            else
+                tempstr_u=[tempstr_u 'p' num2str(k) ','];
+                tempstr_b=[tempstr_b 'p' num2str(k) ','];
+            end
+        end
+        k=NumGenes;
+        if k==RegulatorInds(j)
+            tempstr_u=[tempstr_u 'p' num2str(RegulatorInds(j)) '~0)'];
+            tempstr_b=[tempstr_b 'p' num2str(RegulatorInds(j)) '~1)'];
+        else
+            tempstr_u=[tempstr_u 'p' num2str(k) ')'];
+            tempstr_b=[tempstr_b 'p' num2str(k) ')'];
+        end
+        fprintf(fid,['    ' GeneName tempstr_u ' + ' ProteinName ' + ' ProteinName ' <-> ' GeneName tempstr_b ' h,f\n']);
+    end
+end
+
+%this block writes the protein expression (rate g) and degradation (rate k)
+%reactions. It implements the rule that protein is expressed only when at
+%least one activator and no repressors are bound. 
+for i=1:NumGenes
+    GeneName=GeneList{i};
+    ProteinName=ProteinList{i};
+    ActivatorInds=find(GeneInteractions(i,:)==1); %find the indices of all genes in the network that activate the target
+    RepressorInds=find(GeneInteractions(i,:)==-1); %find the indices of all genes in the network that repress the target
+    if ActivatorInds %only write an expression reaction if the target has at least one activator
+        for j=1:numel(ActivatorInds) %loop through the activators
+              tempstr='(';
+            for k=1:NumGenes-1
+                if k==ActivatorInds(j)
+                    tempstr=[tempstr 'p' num2str(ActivatorInds(j)) '~1,'];
+                elseif ismember(k,RepressorInds)
+                    tempstr=[tempstr 'p' num2str(k) '~0,'];
+                else
+                    tempstr=[tempstr 'p' num2str(k) ','];
+                end
+            end
+            k=NumGenes;
+            if k==ActivatorInds(j)
+                tempstr=[tempstr 'p' num2str(ActivatorInds(j)) '~1)'];
+            elseif ismember(k,RepressorInds)
+                tempstr=[tempstr 'p' num2str(k) '~0)'];
+            else
+                tempstr=[tempstr 'p' num2str(k) ')'];
+            end
+            fprintf(fid,['    ' GeneName tempstr ' -> ' GeneName tempstr ' + ' ProteinName ' g\n'])
+        end
+    else
+    end
+    fprintf(fid,['    ' ProteinName ' -> 0 k\n']); %protein degradation reactions
+end
+
+
+fprintf(fid,'end reaction rules \n');
+fprintf(fid,'end model\n');
+fprintf(fid,'\n');
+
+fprintf(fid,'generate_network({overwrite=>1})\n');
+fprintf(fid,'simulate_ssa({t_start=>0,t_end=>10,n_steps=>10})\n');
+
+
+fclose(fid)
